@@ -1,31 +1,17 @@
 import "./App.css";
 import { useState } from "react";
 
+import Bulb from "./components/Bulb";
+import Counter from "./components/Counter";
 // 리액트는 state의 값이 바뀌었을 때 리렌더링된다.
 // 그래서 변수의 값을 바꿔주도록 코드를 짜면 화면엔 변화가 없다.
-function App() {
-  const [count, setCount] = useState(0);
-  // state에는 값이 들어있고 setState에는 함수가 들어있다.
-  const [light, setLight] = useState("OFF");
+// 그 외에도 props의 값이 바뀌거나 부모 컴포넌트의 값이 바뀌면 자식 컴포넌트를 리렌더링한다.
 
+function App() {
   return (
     <>
-    <div>
-      <h1>{light}</h1>
-      <button onClick={() => {
-        setLight(light === "ON" ? "OFF" : "ON");
-      }}>
-        {light === "ON" ? "끄기" : "켜기"}
-      </button>
-    </div>
-    <div>
-      <h1>{count}</h1>
-      <button onClick={()=>{
-        setCount(count + 1);
-      }}>
-        +
-      </button>
-    </div>
+      <Bulb />
+      <Counter />
     </>
   );
 }
